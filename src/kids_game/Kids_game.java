@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package kids_game;
 
 import java.awt.Font;
@@ -19,8 +14,6 @@ import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sound.sampled.AudioSystem;
-
-
 import javax.sound.sampled.Clip;
 import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
@@ -28,7 +21,6 @@ import sun.audio.AudioStream;
 public class Kids_game extends JFrame implements ActionListener {
 
     JButton button = new JButton();
-    // JPanel panel = new JPanel();
     JButton animals = new JButton();
     JButton letters = new JButton();
     JButton EvenOdd = new JButton();
@@ -37,7 +29,7 @@ public class Kids_game extends JFrame implements ActionListener {
     JLabel Title2 = new JLabel();
 
     JLabel test = new JLabel();
-    //ImageIcon img = new ImageIcon("C:\\Users\\a7law\\Desktop\\مبادئ\\Kidd.jpg");
+
     JLabel l6 = new JLabel(new ImageIcon("C:\\Users\\a7law\\Desktop\\مبادئ\\image.png"));
 
     Clip clip;
@@ -51,10 +43,10 @@ public class Kids_game extends JFrame implements ActionListener {
         setLocationRelativeTo(null);
         setLayout(null);
 
-        
-        
-        
-        
+
+
+
+
         animals.setIcon(new ImageIcon("C:\\Users\\a7law\\Desktop\\مبادئ\\AnimalsGIFF.gif"));
         shapes.setIcon(new ImageIcon("C:\\Users\\a7law\\Desktop\\مبادئ\\uu.gif"));
         letters.setIcon(new ImageIcon("C:\\Users\\a7law\\Desktop\\مبادئ\\ei.gif"));
@@ -65,27 +57,25 @@ public class Kids_game extends JFrame implements ActionListener {
         button.setBounds(50, 50, 200, 200);
         animals.setBounds(244, 435, 120, 180);
         shapes.setBounds(447, 535, 120, 180);
-        letters.setBounds(433,133,120,180);
-        EvenOdd.setBounds(224,77,120,180);
-        Title2.setBounds(380,0,600,120);
-        //Title2.setFont(new Font("INK Free", Font.BOLD, 100));
+        letters.setBounds(433, 133, 120, 180);
+        EvenOdd.setBounds(224, 77, 120, 180);
+        Title2.setBounds(380, 0, 600, 120);
+
         add(Title2);
         add(Title);
-        
-        
+
+
         add(animals);
         add(shapes);
         add(letters);
-       add(EvenOdd);
-      
-      
-      
-      // animals.addActionListener(this);
-     //  shapes.addActionListener(this);
+        add(EvenOdd);
+
+
+
         l6.setBounds(0, 0, 800, 800);
         add(l6);
 
-          try {
+        try {
             File file = new File("C:\\Users\\a7law\\Desktop\\مبادئ\\v.wav");
             clip = AudioSystem.getClip();
             clip.open(AudioSystem.getAudioInputStream(file));
@@ -95,52 +85,51 @@ public class Kids_game extends JFrame implements ActionListener {
             System.err.println("");
         }
 
-//========================================
-//========================================
+        //========================================
+        //========================================
 
         animals.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                
+
                 AnimalSound a = new AnimalSound();
                 setVisible(false);
-                
+
                 clip.stop();
             }
         });
-        
-        
-        
-        
+
+
+
+
         letters.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-               try {
-                letters a = new letters();
-                setVisible(false);
-                clip.stop();
-                               InputStream IAudio;
                 try {
-                    IAudio = new FileInputStream(new File("C:\\Users\\a7law\\Desktop\\مبادئ\\intro_A.wav"));
-                    AudioStream IMusic = new AudioStream(IAudio);
-                    AudioPlayer.player.start(IMusic);
-                } catch (IOException ex) {
-                    Logger.getLogger(Kids_game.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                    letters a = new letters();
+                    setVisible(false);
+                    clip.stop();
+                    InputStream IAudio;
+                    try {
+                        IAudio = new FileInputStream(new File("C:\\Users\\a7law\\Desktop\\مبادئ\\intro_A.wav"));
+                        AudioStream IMusic = new AudioStream(IAudio);
+                        AudioPlayer.player.start(IMusic);
+                    } catch (IOException ex) {
+                        Logger.getLogger(Kids_game.class.getName()).log(Level.SEVERE, null, ex);
+                    }
 
-               }
-               catch(Exception e){}
+                } catch (Exception e) {}
             }
         });
-      
-           EvenOdd.addActionListener(new ActionListener() {
+
+        EvenOdd.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                
+
                 EvenOdd a = new EvenOdd();
                 setVisible(false);
                 clip.stop();
-                 InputStream IAudio;
+                InputStream IAudio;
                 try {
                     IAudio = new FileInputStream(new File("C:\\Users\\A7law\\Desktop\\مبادئ\\intro_123.wav"));
                     AudioStream IMusic = new AudioStream(IAudio);
@@ -148,48 +137,45 @@ public class Kids_game extends JFrame implements ActionListener {
                 } catch (IOException ex) {
                     Logger.getLogger(Kids_game.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                
+
             }
         });
 
         shapes.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                
-                
+
+
                 try {
                     Story b = new Story();
-                      setVisible(false);
-                   
-                
-                     clip.stop();
+                    setVisible(false);
+
+
+                    clip.stop();
                 } catch (FileNotFoundException ex) {
-                   
+
                 }
-                  
-                
-                
+
+
+
             }
         });
 
     }
 
     public static void main(String[] args) throws IOException {
-         // Kids_game t = new Kids_game();
-           SignIn x = new SignIn();
-         // CreateAccount y = new CreateAccount();
-        // Story y = new Story();
-       //EvenOdd s = new EvenOdd();
-      //letters s = new letters();
-        
+
+        SignIn x = new SignIn();
+
+
 
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-    
-        
+
+
     }
 
-   
+
 }
